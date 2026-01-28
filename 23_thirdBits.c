@@ -8,7 +8,7 @@
  */
 int thirdBits(void)
 {
-    return 2;
+    return (((0x49<<9) | 0x49) << 18) | ((0x49 << 9)| 0x49) ;
 }
 
 int test_thirdBits(void)
@@ -25,3 +25,8 @@ int main(void)
     printf("expected: %x\n", thirdBits());
     printf("actual  : %x\n", test_thirdBits());
 }
+
+/*
+0x49: 0000 0000 0000 0000 0000 0100 1001
+<<9: 1001 0100 0100 1001
+*/

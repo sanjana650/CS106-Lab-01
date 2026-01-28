@@ -7,9 +7,15 @@
  *   Max ops: 2
  *   Rating: 1
  */
+ /*
+ 
+ */
+
+ 
 int isZero(int x)
 {
-    return 2;
+    return !(x^0);
+    //return !x
 }
 
 int test_isZero(int x)

@@ -10,7 +10,7 @@
  */
 int fitsShort(int x)
 {
-    return 2;
+    return !((x>>15) ^ (x>>16)); 
 }
 
 int test_fitsShort(int x)
@@ -21,7 +21,25 @@ int test_fitsShort(int x)
 
 int main(void)
 {
-    int x = 0;
+    int x = 0xFF;
     printf("expected: %x\n", fitsShort(x));
     printf("actual  : %x\n", test_fitsShort(x));
 }
+
+/*
+1111 1111 1111 1111 (-1) (TMin)
+0000 0000 0000 0000 (zero)
+0000 0000 0000 0001 (one)
+0111 1111 1111 1111 (TMAX)
+
+extend to int;
+1111 1111 1111 1111 1000 0000 0000 0000 (short Tmin)
+...
+1111 1111 1111 1111 1111 1111 1111 1111 (-1)
+0000 0000 0000 0000 0000 0000 0000 0000 (zero)
+0000 0000 0000 0000 0000 0000 0000 0001 (one)
+...
+0000 0000 0000 0000 0111 1111 1111 1111 (short TMax)
+
+whenever the upper 17 bits are the same, the int can fit in the short
+*/

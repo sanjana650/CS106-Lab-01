@@ -9,7 +9,7 @@
  */
 int bitAnd(int x, int y)
 {
-    return 2;
+    return ~((~x) | (~y));
 }
 
 int test_bitAnd(int x, int y)
@@ -24,3 +24,8 @@ int main(void)
     printf("expected: %x\n", test_bitAnd(x, y));
     printf("actual  : %x\n", bitAnd(x, y));
 }
+/*
+DE MORGANS LAW
+~(x & y) = (~x) | (~y)
+~(x | y) = (~x) & (~y)
+*/

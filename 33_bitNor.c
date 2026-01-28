@@ -9,7 +9,8 @@
  */
 int bitNor(int x, int y)
 {
-    return 2;
+    // return ~(((~x) & ~(~y)));
+    return (~x) & (~y);
 }
 
 int test_bitNor(int x, int y)

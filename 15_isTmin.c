@@ -9,7 +9,7 @@
  */
 int isTmin(int x)
 {
-    return 2;
+    return !(x^(1<<31));
 }
 
 int test_isTmin(int x)
@@ -23,3 +23,9 @@ int main(void)
     printf("expected: %x\n", isTmin(x));
     printf("actual  : %x\n", test_isTmin(x));
 }
+
+/*
+if we want to:
+test x== TMax
+test ~x== TMIN
+*/

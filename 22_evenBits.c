@@ -1,4 +1,9 @@
 #include <stdio.h>
+/*
+
+0000 0000
+8765 4321
+*/
 
 /* 
  * evenBits - return word with all even-numbered bits set to 1
@@ -8,7 +13,7 @@
  */
 int evenBits(void)
 {
-    return 2;
+    return (((0x55 << 8) | 0x55) << 16 | 0x55);
 }
 
 int test_evenBits(void)
@@ -25,3 +30,10 @@ int main(void)
     printf("expected: %x\n", evenBits());
     printf("actual  : %x\n", test_evenBits());
 }
+
+/*
+
+5555 5555
+0101 0101 .....
+
+*/

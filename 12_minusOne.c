@@ -8,7 +8,9 @@
  */
 int minusOne(void)
 {
-    return 2;
+    // return ~0;
+    return (1<<31)>>31; //CAN USE ANY CONSTANT BUT BEST IS 1 or 0.
+    //send 1 to LSB to MSB and then right shift 
 }
 
 int test_minusOne(void)

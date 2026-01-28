@@ -10,8 +10,10 @@
  */
 int upperBits(int n)
 {
-    return 2;
+    // find TMin 
+    return ((1<<31)>>(n+(~0))) >> 31); //wrong answer fix it later
 }
+//cannot shift negative number: (1<<31)>>(-1) -> unpredictable
 
 int test_upperBits(int x)
 {

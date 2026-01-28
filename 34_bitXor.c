@@ -9,7 +9,8 @@
  */
 int bitXor(int x, int y)
 {
-    return 2;
+    return (~((~x) | (~y))) && (~x);
+    return ~( (x|y) & (~(x&y))) //also wrong figure it out later 
 }
 
 int test_bitXor(int x, int y)
@@ -24,3 +25,5 @@ int main(void)
     printf("expected: %x\n", bitXor(x, y));
     printf("actual  : %x\n", test_bitXor(x, y));
 }
+
+//actual output is: abcccdff

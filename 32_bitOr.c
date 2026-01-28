@@ -9,7 +9,7 @@
  */
 int bitOr(int x, int y)
 {
-    return 2;
+    return ~((~x) & (~y));
 }
 
 int test_bitOr(int x, int y)
